@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Auth Bug',
+      title: 'Firebase Auth Bug',
       home: const SignUpScreen(),
     );
   }
@@ -50,6 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   labelText: 'Email',
                 ),
               ),
+              SizedBox(height: 20),
               TextField(
                 obscureText: true,
                 controller: passwordController,
@@ -58,6 +59,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   labelText: 'Password',
                 ),
               ),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _onSignUp,
                 child: Text('SIGN UP'),
