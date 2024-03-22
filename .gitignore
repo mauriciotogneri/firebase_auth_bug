@@ -44,6 +44,4 @@ app.*.map.json
 /android/app/release
 
 # Custom
-!.vscode/
-!scripts/
-android/secrets.gradle
+/android/app/src/google-services.json

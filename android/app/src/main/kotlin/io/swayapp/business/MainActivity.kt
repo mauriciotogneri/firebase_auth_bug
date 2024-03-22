@@ -1,4 +1,4 @@
-package com.example.auth_locale
+package io.swayapp.business
 
 import io.flutter.embedding.android.FlutterActivity
 
