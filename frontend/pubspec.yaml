@@ -1,4 +1,4 @@
-name: firebaseauthbug
+name: firebase_auth_bug
 description: Firebase Auth Bug Example
 publish_to: none
 version: 0.0.1+1
