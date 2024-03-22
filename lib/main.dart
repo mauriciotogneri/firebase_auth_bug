@@ -33,6 +33,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool enabled = true;
 
   @override
   void initState() {
@@ -54,6 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: [
               TextField(
                 controller: emailController,
+                enabled: enabled,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -64,6 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextField(
                 obscureText: true,
                 controller: passwordController,
+                enabled: enabled,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
@@ -71,7 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _onSignUp,
+                onPressed: enabled ? _onSignUp : null,
                 child: Text('SIGN UP'),
               )
             ],
@@ -82,10 +85,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future _onSignUp() async {
+    setState(() {
+      enabled = false;
+    });
     await FirebaseAuth.instance.setLanguageCode('en-US');
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: emailController.text,
       password: passwordController.text,
     );
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('User created'),
+    ));
   }
 }
