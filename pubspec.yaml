@@ -1,0 +1,20 @@
+name: auth_locale
+description: auth locale bug example
+publish_to: none
+version: 0.0.1+1
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
