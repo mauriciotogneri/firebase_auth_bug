@@ -1,4 +1,4 @@
-import 'package:auth_locale/firebase_options.dart';
+import 'package:firebaseauthbug/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,6 +35,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController passwordController = TextEditingController();
 
   @override
+  void initState() {
+    final int id = DateTime.now().millisecondsSinceEpoch;
+    emailController.text = 'email+${id}@email.com';
+    passwordController.text = id.toRadixString(16);
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -45,6 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: [
               TextField(
                 controller: emailController,
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',

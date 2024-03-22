@@ -1,5 +1,5 @@
-name: auth_locale
-description: auth locale bug example
+name: firebaseauthbug
+description: Firebase Auth Bug Example
 publish_to: none
 version: 0.0.1+1
 
